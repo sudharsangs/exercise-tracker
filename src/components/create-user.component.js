@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './user-style.css'
+import "bootstrap/dist/css/bootstrap.min.css";
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBCard, MDBCardBody } from 'mdbreact';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bootstrap-css-only/css/bootstrap.min.css";
+import "mdbreact/dist/css/mdb.css";
 
-const fstyle = {
-  color: 'red',
-  font: 'arial'
-};
 
 export default class CreateUser extends Component {
   constructor(props) {
@@ -44,23 +45,58 @@ export default class CreateUser extends Component {
 
   render() {
     return (
-      <div>
-        <h3>Create New User</h3>
-        <form onSubmit={this.onSubmit}>
-          <div className="form-group field field field:hover"> 
-            <label style={fstyle}>Username: </label>
-            <input  type="text"
-                required
-                className="form-control"
-                value={this.state.username}
-                onChange={this.onChangeUsername}
-                />
-          </div>
-          <div className="form-group">
-            <input type="submit" value="Create User" className="btn btn-primary" />
-          </div>
-        </form>
-      </div>
-    )
-  }
+      <MDBContainer>
+      <MDBRow>
+        <MDBCol md="6">
+        <MDBCard>
+        <MDBCardBody>
+          <form>
+            <p className="h5 text-center mb-4">Sign up</p>
+            <div className="grey-text">
+              <MDBInput
+                label="Your name"
+                icon="user"
+                group
+                type="text"
+                validate
+                error="wrong"
+                success="right"
+              />
+              <MDBInput
+                label="Your email"
+                icon="envelope"
+                group
+                type="email"
+                validate
+                error="wrong"
+                success="right"
+              />
+              <MDBInput
+                label="Confirm your email"
+                icon="exclamation-triangle"
+                group
+                type="text"
+                validate
+                error="wrong"
+                success="right"
+              />
+              <MDBInput
+                label="Your password"
+                icon="lock"
+                group
+                type="password"
+                validate
+              />
+            </div>
+            <div className="text-center">
+              <MDBBtn gradient="peach" rounded>Sign Up</MDBBtn>
+            </div>
+          </form>
+          </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
+    </MDBContainer>
+  );
+}
 }
