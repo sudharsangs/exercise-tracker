@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './user-style.css'
+
+const fstyle = {
+  color: 'red',
+  font: 'arial'
+};
 
 export default class CreateUser extends Component {
   constructor(props) {
@@ -41,8 +47,8 @@ export default class CreateUser extends Component {
       <div>
         <h3>Create New User</h3>
         <form onSubmit={this.onSubmit}>
-          <div className="form-group"> 
-            <label>Username: </label>
+          <div className="form-group field field field:hover"> 
+            <label style={fstyle}>Username: </label>
             <input  type="text"
                 required
                 className="form-control"
