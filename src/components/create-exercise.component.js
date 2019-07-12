@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBCard, MDBCardBody } from 'mdbreact';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bootstrap-css-only/css/bootstrap.min.css";
+import "mdbreact/dist/css/mdb.css";
 
 export default class CreateExercise extends Component {
   constructor(props) {
@@ -83,43 +87,40 @@ export default class CreateExercise extends Component {
   render() {
     return (
     <div>
-      <h3>Create New Exercise Log</h3>
-      <form onSubmit={this.onSubmit}>
-        <div className="form-group"> 
-          <label>Username: </label>
-          <select ref="userInput"
-              required
-              className="form-control"
-              value={this.state.username}
-              onChange={this.onChangeUsername}>
-              {
-                this.state.users.map(function(user) {
-                  return <option 
-                    key={user}
-                    value={user}>{user}
-                    </option>;
-                })
-              }
-          </select>
-        </div>
-        <div className="form-group"> 
-          <label>Description: </label>
-          <input  type="text"
-              required
-              className="form-control"
-              value={this.state.description}
-              onChange={this.onChangeDescription}
+      <MDBContainer>
+      <MDBRow>
+        <MDBCol md="6">
+        <MDBCard>
+        <MDBCardBody>
+        <h3>Create New Exercise Log</h3>
+        <form onSubmit={this.onSubmit}>
+        <MDBInput
+                label="Type your email"
+                icon="envelope"
+                group
+                type="email"
+                validate
+                error="wrong"
+                success="right"
               />
-        </div>
-        <div className="form-group">
-          <label>Duration (in minutes): </label>
-          <input 
-              type="text" 
-              className="form-control"
-              value={this.state.duration}
-              onChange={this.onChangeDuration}
+        <MDBInput
+                label="Type your password"
+                icon="lock"
+                group
+                type="password"
+                validate
               />
-        </div>
+        <MDBInput
+                label="Type the description"
+                group
+                type="text"
+              />
+        <MDBInput
+                label="Duration (in minutes)"
+                group
+                type="text"
+              />
+        
         <div className="form-group">
           <label>Date: </label>
           <div>
@@ -129,12 +130,19 @@ export default class CreateExercise extends Component {
             />
           </div>
         </div>
-
-        <div className="form-group">
-          <input type="submit" value="Create Exercise Log" className="btn btn-primary" />
+        <div className="text-center">
+              <MDBBtn gradient="peach" rounded>
+                Create
+              </MDBBtn>
         </div>
-      </form>
+          </form>
+          </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
+    </MDBContainer>
     </div>
+  
     )
   }
 }

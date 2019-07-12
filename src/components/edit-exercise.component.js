@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBCard, MDBCardBody } from 'mdbreact';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bootstrap-css-only/css/bootstrap.min.css";
+import "mdbreact/dist/css/mdb.css";
 
 export default class EditExercise extends Component {
   constructor(props) {
@@ -116,7 +120,8 @@ export default class EditExercise extends Component {
         </div>
         <div className="form-group"> 
           <label>Description: </label>
-          <input  type="text"
+          <MDBInput  
+              type="text"
               required
               className="form-control"
               value={this.state.description}
@@ -125,7 +130,7 @@ export default class EditExercise extends Component {
         </div>
         <div className="form-group">
           <label>Duration (in minutes): </label>
-          <input 
+          <MDBInput 
               type="text" 
               className="form-control"
               value={this.state.duration}
@@ -143,7 +148,10 @@ export default class EditExercise extends Component {
         </div>
 
         <div className="form-group">
-          <input type="submit" value="Edit Exercise Log" className="btn btn-primary" />
+          <MDBBtn 
+          type="submit" 
+          value="Edit Exercise Log" 
+          className="btn btn-primary" />
         </div>
       </form>
     </div>
